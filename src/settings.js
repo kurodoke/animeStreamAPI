@@ -7,11 +7,7 @@ const headerOPT = {
     validateStatus: (status) => true,
 };
 
-const port = 3001;
-const localURL = "http://localhost";
+const port = 5000;
 const baseURL = "https://kuramanime.pro";
 
-const whitelist_URL = "http://192.168.18.80:5173";
-// const whitelist_URL = "http://192.168.106.75:5173";
-
-export { headerOPT, port, localURL, baseURL, whitelist_URL };
+export { headerOPT, port, baseURL };

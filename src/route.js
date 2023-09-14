@@ -39,7 +39,7 @@ async function routeAnimeSearch(req, res) {
         console.log(err);
         json.status = err.status;
     }
-    res.json(json);
+    res.status(json.status).json(json);
 }
 
 async function routeAnimeDetail(req, res) {
@@ -61,7 +61,7 @@ async function routeAnimeDetail(req, res) {
         json.status = err.status;
     }
 
-    res.json(json);
+    res.status(json.status).json(json);
 }
 
 async function routeAnimeFinished(req, res) {
@@ -86,7 +86,7 @@ async function routeAnimeFinished(req, res) {
         console.log(err);
         json.status = err.status;
     }
-    res.json(json);
+    res.status(json.status).json(json);
 }
 
 async function routeAnimeOngoing(req, res) {
@@ -111,7 +111,7 @@ async function routeAnimeOngoing(req, res) {
         console.log(err);
         json.status = err.status;
     }
-    res.json(json);
+    res.status(json.status).json(json);
 }
 
 async function routeAnimeList(req, res) {
@@ -136,7 +136,7 @@ async function routeAnimeList(req, res) {
         console.log(err);
         json.status = err.status;
     }
-    res.json(json);
+    res.status(json.status).json(json);
 }
 
 async function routeAnimeStream(req, res) {
@@ -155,7 +155,7 @@ async function routeAnimeStream(req, res) {
     } catch (err) {
         console.log(err);
     }
-    res.json(json);
+    res.status(json.status).json(json);
 }
 
 export {

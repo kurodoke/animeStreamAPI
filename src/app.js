@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 
 //local import
-import { baseURL, port, whitelist_URL } from "./settings.js";
+import { port } from "./settings.js";
 
 import {
     routeAnimeDetail,
@@ -63,3 +63,5 @@ app.get("/api/anime/:animeId/:animeSlug/episode/:episodeNum", routeAnimeStream);
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
+
+export default app;
