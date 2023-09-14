@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-//local import
+///local import
 import { port } from "./settings.js";
 
 import {
