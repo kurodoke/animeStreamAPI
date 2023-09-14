@@ -63,5 +63,3 @@ app.get("/api/anime/:animeId/:animeSlug/episode/:episodeNum", routeAnimeStream);
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 });
-
-export default app;
