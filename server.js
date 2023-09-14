@@ -1,7 +1,8 @@
 import express from "express";
+import cors from "cors";
 
 //local import
-import { port } from "./settings.js";
+import { baseURL, port, whitelist_URL } from "./settings.js";
 
 import {
     routeAnimeDetail,
@@ -14,6 +15,24 @@ import {
 
 //initialize the express
 const app = express();
+
+//cors
+app.use(cors());
+
+app.use((req, res, next) => {
+    const token = req.headers.authorization;
+
+    if (token && isValidToken(token)) {
+        next();
+    } else {
+        res.status(401).json({ message: "You are not Authorized" });
+    }
+});
+
+function isValidToken(token) {
+    if (token == "Bearer Kurodoke") return true;
+    return false;
+}
 
 //routes
 app.all("/", function (req, res) {
@@ -35,7 +54,7 @@ app.get("/api/finished/:page?/:orderBy?", routeAnimeFinished);
 app.get("/api/ongoing/:page?/:orderBy?", routeAnimeOngoing);
 
 //route anime list
-app.get("/api/anime/:page?/:orderBy?", routeAnimeList);
+app.get("/api/animelist/:page?/:orderBy?", routeAnimeList);
 
 //route anime episode(stream)
 app.get("/api/anime/:animeId/:animeSlug/episode/:episodeNum", routeAnimeStream);

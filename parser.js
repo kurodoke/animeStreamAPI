@@ -111,7 +111,10 @@ function parseAnimeList($) {
                         .trim(),
                 };
             })
-            .get();
+            .get()
+            .filter((val, index, arr) => {
+                return val.animeName != "";
+            });
     }
 }
 
