@@ -21,7 +21,7 @@ app.use(cors());
 
 app.use((req, res, next) => {
     const token = req.headers.authorization;
-
+    next();
     // if (token && isValidToken(token)) {
     //     next();
     // } else {
