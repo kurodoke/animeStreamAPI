@@ -22,11 +22,11 @@ app.use(cors());
 app.use((req, res, next) => {
     const token = req.headers.authorization;
 
-    if (token && isValidToken(token)) {
-        next();
-    } else {
-        res.status(401).json({ message: "You are not Authorized" });
-    }
+    // if (token && isValidToken(token)) {
+    //     next();
+    // } else {
+    //     res.status(401).json({ message: "You are not Authorized" });
+    // }
 });
 
 function isValidToken(token) {
@@ -39,6 +39,13 @@ app.all("/", function (req, res) {
     res.send(
         "<h1>welcome to anime REST API</h1> <h3>add the /api/ to the url to access the api</h3> <p>read the documentation of the api for the detail</p>"
     );
+});
+
+app.get("/api/headers", async function (req, res) {
+    try {
+        let html = await axios.get("http://httpbin.org/headers", headerOPT);
+        res.send(html);
+    } catch {}
 });
 
 //route search
